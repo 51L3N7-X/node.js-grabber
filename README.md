@@ -3,7 +3,7 @@
 
 ## Requirements
 
-- Node.js v12.0.0 or newer or convert it to exe using **[pgk](https://www.npmjs.com/package/pkg)** npm package
+- Node.js v12.0.0 or convert it to exe using **[pgk](https://www.npmjs.com/package/pkg)** npm package
 
 ## Configuration
 
