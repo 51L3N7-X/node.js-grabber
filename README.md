@@ -9,7 +9,7 @@
 
 Copy your discord webhook url and paste it on node-grabber.js
 
-#Notes
+# Notes
 > This project is for educational purpose only!
 > Supports Windows in the future will support Linux and Mac
 
